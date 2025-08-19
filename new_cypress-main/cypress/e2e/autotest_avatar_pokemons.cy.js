@@ -2,8 +2,8 @@ describe('Проверка покупки нового аватара', function
     it('e2e тест на покупку нового аватара для тренера', function () {   // название теста
          cy.visit('https://pokemonbattle.ru/');                          // переходим на сайт https://pokemonbattle.ru/
          cy.get('.k_footer_container_version', { timeout: 5000 }).contains('Версия 4.2.0').should('be.visible');
-         cy.get('input[id="k_email"]', { timeout: 10000 }).type('GUF5518@yandex.ru');                           // вводим логин
-         cy.get('input[id="k_password"').type('Valensia2025');               // вводим пароль
+         cy.get('input[id="k_email"]', { timeout: 10000 }).type('USER_LOGIN');                           // вводим логин
+         cy.get('input[id="k_password"').type('USER_PASSWORD');               // вводим пароль
          cy.get('button[type="submit"]').click();                // нажимаем кнопку Подтвердить
          cy.get('.header_card_trainer', { timeout: 10000 }).should('be.visible').click();
          cy.get('[data-qa="shop"]').should('be.visible').click(); // нажимаем кнопку Смена аватара
@@ -18,3 +18,4 @@ describe('Проверка покупки нового аватара', function
          cy.contains('Покупка прошла успешно').should('be.visible');     // проверяем наличие и видимость сообщения об успешной покупке
      });
  });
+
